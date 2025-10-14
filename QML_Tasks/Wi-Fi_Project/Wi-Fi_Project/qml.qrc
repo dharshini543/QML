@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>WiFi.qml</file>
+        <file>Downloads/WiFiRange0.png</file>
+        <file>Downloads/WiFiRange25.png</file>
+        <file>Downloads/WiFiRange50.png</file>
+        <file>Downloads/WiFiRange75.png</file>
+        <file>Downloads/WiFiRange100.png</file>
+    </qresource>
+</RCC>
