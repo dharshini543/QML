@@ -44,7 +44,13 @@ Rectangle {
             radius: 10
             border.color: "#3a3a3a"
             color: {
-                if (mouseArea.containsMouse)
+                if(WiFiStatus == "connected")
+                {
+                    wifiStatus.color = "orange"
+                    wifiName.font.bold = true
+                    wifiStatus.font.bold = true
+                }
+                else if (mouseArea.containsMouse)
                     return "#2d2d2d";
                 else
                     return "#252526";
@@ -59,6 +65,7 @@ Rectangle {
                 color: "#a0a0a0"
                 font.pixelSize: 14
             }
+
             Row
             {
                 id: row
@@ -66,7 +73,8 @@ Rectangle {
                 anchors.fill: parent
                 anchors.margins: 15
 
-                Image {
+                Image
+                {
                     id: wifiImage
                     width: 26
                     height: 26
@@ -157,8 +165,41 @@ Rectangle {
                             width: 300
                             height: 32
                             placeholderText: "Password"
-                            color: "#ffffff"
+                            color: "white"
+
+                            property bool showPassword: false
+
+                            echoMode: passwordEdit.showPassword ? TextInput.Normal : TextInput.Password
+                            rightPadding: 20
+
+                            Rectangle {
+                                id: iconContainer
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.right: parent.right
+                                width: 28
+                                height: 28
+                                color: "transparent"
+
+                                Image {
+                                    id: eyeIcon
+                                    anchors.centerIn: parent
+                                    width: 20
+                                    height: 20
+                                    source: passwordEdit.showPassword
+                                            ? "qrc:/Downloads/eye_open.png"
+                                            : "qrc:/Downloads/eye_closed.png"
+
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked:
+                                        {
+                                            passwordEdit.showPassword = !passwordEdit.showPassword
+                                        }
+                                    }
+                                }
+                            }
                         }
+
 
                         Row {
                             spacing: 10
@@ -178,7 +219,10 @@ Rectangle {
                                 onClicked: {
                                     var Ok = WiFiModel.connectToNetwork(WiFiName, passwordEdit.text)
                                     if (Ok)
+                                    {
                                         console.log("WiFi connected successfully")
+                                    }
+
                                     else
                                         console.log("Incorrect Password")
                                     myPopup.close()
@@ -191,3 +235,4 @@ Rectangle {
         }
     }
 }
+

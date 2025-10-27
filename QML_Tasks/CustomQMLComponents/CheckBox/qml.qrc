@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>MyCheckBox.qml</file>
-        <file>Downloads/check-mark.png</file>
-    </qresource>
-</RCC>

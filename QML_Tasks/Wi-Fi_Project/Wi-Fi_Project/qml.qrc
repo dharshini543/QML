@@ -7,5 +7,7 @@
         <file>Downloads/WiFiRange50.png</file>
         <file>Downloads/WiFiRange75.png</file>
         <file>Downloads/WiFiRange100.png</file>
+        <file>Downloads/eye_closed.png</file>
+        <file>Downloads/eye_open.png</file>
     </qresource>
 </RCC>

@@ -4,13 +4,13 @@ WiFiViewModel::WiFiViewModel(QObject *parent)
     : QAbstractListModel(parent),
     m_dataModel(new WiFiDataModel)
 {
-    qDebug()<<Q_FUNC_INFO;
     m_dataModel->loadFromCSV();
     refreshModel();
 }
 
 WiFiViewModel::~WiFiViewModel()
 {
+    m_dataModel->saveToCSV();
     delete m_dataModel;
 }
 
@@ -57,6 +57,7 @@ bool WiFiViewModel::connectToNetwork(const QString &wifiName, const QString &pas
     bool Ok = m_dataModel->connectToNetwork(wifiName, password);
     refreshModel();
     return Ok;
+
 }
 
 void WiFiViewModel::refreshModel()

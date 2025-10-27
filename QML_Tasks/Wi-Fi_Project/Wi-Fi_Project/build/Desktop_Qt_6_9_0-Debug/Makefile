@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = WiFi_Project1.0.0
-DISTDIR = /home/dharshini-t-r/Documents/QML/Wi-Fi_Project/Wi-Fi_Project/build/Desktop_Qt_6_9_0-Debug/.tmp/WiFi_Project1.0.0
+DISTDIR = /home/dharshini-t-r/Documents/QML/QML_Tasks/Wi-Fi_Project/Wi-Fi_Project/build/Desktop_Qt_6_9_0-Debug/.tmp/WiFi_Project1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/dharshini-t-r/Qt/6.9.0/gcc_64/lib -Wl,-rpath-link,/home/dharshini-t-r/Qt/6.9.0/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6Quick.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6OpenGL.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6Gui.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6QmlMeta.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6QmlModels.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6QmlWorkerScript.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6Qml.so -pthread /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6Network.so /home/dharshini-t-r/Qt/6.9.0/gcc_64/lib/libQt6Core.so -lpthread -lGL   
@@ -863,7 +863,9 @@ qrc_qml.cpp: ../../qml.qrc \
 		../../Downloads/WiFiRange75.png \
 		../../Downloads/WiFiRange50.png \
 		../../Downloads/WiFiRange25.png \
-		../../Downloads/WiFiRange100.png
+		../../Downloads/eye_open.png \
+		../../Downloads/WiFiRange100.png \
+		../../Downloads/eye_closed.png
 	/home/dharshini-t-r/Qt/6.9.0/gcc_64/libexec/rcc -name qml ../../qml.qrc -o qrc_qml.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1008,7 +1010,7 @@ moc_WiFiViewModel.cpp: ../../WiFiViewModel.h \
 		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/q20utility.h \
 		moc_predefs.h \
 		/home/dharshini-t-r/Qt/6.9.0/gcc_64/libexec/moc
-	/home/dharshini-t-r/Qt/6.9.0/gcc_64/libexec/moc $(DEFINES) --include /home/dharshini-t-r/Documents/QML/Wi-Fi_Project/Wi-Fi_Project/build/Desktop_Qt_6_9_0-Debug/moc_predefs.h -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/mkspecs/linux-g++ -I/home/dharshini-t-r/Documents/QML/Wi-Fi_Project/Wi-Fi_Project -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQuick -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtOpenGL -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtGui -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlMeta -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlModels -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlWorkerScript -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQml -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlIntegration -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtNetwork -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../WiFiViewModel.h -o moc_WiFiViewModel.cpp
+	/home/dharshini-t-r/Qt/6.9.0/gcc_64/libexec/moc $(DEFINES) --include /home/dharshini-t-r/Documents/QML/QML_Tasks/Wi-Fi_Project/Wi-Fi_Project/build/Desktop_Qt_6_9_0-Debug/moc_predefs.h -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/mkspecs/linux-g++ -I/home/dharshini-t-r/Documents/QML/QML_Tasks/Wi-Fi_Project/Wi-Fi_Project -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQuick -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtOpenGL -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtGui -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlMeta -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlModels -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlWorkerScript -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQml -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtQmlIntegration -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtNetwork -I/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../WiFiViewModel.h -o moc_WiFiViewModel.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1449,7 +1451,35 @@ WiFiDataModel.o: ../../WiFiDataModel.cpp ../../WiFiDataModel.h \
 		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qscopeguard.h \
 		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qset.h \
 		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qhash.h \
-		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qvarlengtharray.h
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/QProcess \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qprocess.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qobject.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qbasictimer.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qabstracteventdispatcher.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qdeadlinetimer.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qelapsedtimer.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qspan.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/q20iterator.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/QStringList \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/QDir \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qdir.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qdirlisting.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qfiledevice.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qcalendar.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qlocale.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qvariant.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/q23utility.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/q20utility.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qfile.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qfileinfo.h \
+		/home/dharshini-t-r/Qt/6.9.0/gcc_64/include/QtCore/qtimezone.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WiFiDataModel.o ../../WiFiDataModel.cpp
 
 WiFiViewModel.o: ../../WiFiViewModel.cpp ../../WiFiViewModel.h \

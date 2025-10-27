@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>WiFi.qml</file>
+        <file>Downloads/eye_closed.png</file>
+        <file>Downloads/eye_open.png</file>
+        <file>Downloads/WiFiRange0.png</file>
+        <file>Downloads/WiFiRange25.png</file>
+        <file>Downloads/WiFiRange50.png</file>
+        <file>Downloads/WiFiRange75.png</file>
+        <file>Downloads/WiFiRange100.png</file>
+        <file>Downloads/search.png</file>
+        <file>Search.qml</file>
+        <file>Downloads/arrow.png</file>
+        <file>MyPopup.qml</file>
+        <file>Downloads/circular-arrows.png</file>
+    </qresource>
+</RCC>

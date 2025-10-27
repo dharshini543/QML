@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
+import QtQuick.Controls
 
 Window {
     width: 500
@@ -12,4 +13,6 @@ Window {
         anchors.fill: parent
         source: "WiFi.qml"
     }
+
+
 }
