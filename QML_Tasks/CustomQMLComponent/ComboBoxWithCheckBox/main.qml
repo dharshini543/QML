@@ -3,17 +3,13 @@ import QtQuick.Window 2.15
 
 Window {
     width: 640
-    height: 600
+    height: 480
     visible: true
-    title: qsTr("Hello World")
+    color: "#222"
+    title: "Country Selector"
 
-    MyComboBox{
-        color: "lightBlue"
-        defaultText:"Country"
-        textColor: "black"
-        imageWidth: 15
-        imageHeight: 15
-        imageSource:"qrc:/Downloads/greenRect"
+    MyComboCheckBox {
+        anchors.centerIn: parent
         customModel: Country
     }
 }

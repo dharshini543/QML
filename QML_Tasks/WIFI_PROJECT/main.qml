@@ -10,7 +10,7 @@ Window {
 
     Loader
     {
-        id:loader
+        id: loader
         anchors.fill: parent
         source: "WiFi.qml"
     }

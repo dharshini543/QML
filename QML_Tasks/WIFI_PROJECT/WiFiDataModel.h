@@ -11,6 +11,7 @@ public:
     WiFiDataModel();
     ~WiFiDataModel();
 
+    // void loadFromSystem();
     void loadFromCSV();
     void saveToCSV();
     bool connectToNetwork(const QString &wifiName, const QString &enteredPassword);

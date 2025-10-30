@@ -2,6 +2,7 @@
 #define WIFIVIEWMODEL_H
 
 #include "WiFiDataModel.h"
+#include "qobjectdefs.h"
 #include <QAbstractListModel>
 
 class WiFiViewModel : public QAbstractListModel
@@ -21,7 +22,6 @@ public:
     Q_INVOKABLE void refreshModel();
     Q_INVOKABLE void filterByName(const QString &query);
 
-
     enum WiFi
     {
         WiFiName = 1,
@@ -34,7 +34,6 @@ private:
     WiFiDataModel* m_dataModel;
     QList<WiFiNetwork> m_currentList;
     QList<WiFiNetwork> m_filteredNetworks;
-
 };
 
 #endif // WIFIVIEWMODEL_H

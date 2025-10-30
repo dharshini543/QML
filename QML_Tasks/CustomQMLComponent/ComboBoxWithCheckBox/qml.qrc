@@ -1,10 +1,26 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MyComboBox.qml</file>
-        <file>MyDelegate.qml</file>
-        <file>MyListView.qml</file>
         <file>Downloads/greenRect.png</file>
-        <file>Downloads/shape.png</file>
+        <file>Downloads/DownwardArrow.png</file>
+        <file>MyComboCheckBox.qml</file>
+        <file>MyDelegate.qml</file>
+        <file>Downloads/check-mark.png</file>
+        <file>Downloads/au.png</file>
+        <file>Downloads/br.png</file>
+        <file>Downloads/ca.png</file>
+        <file>Downloads/de.png</file>
+        <file>Downloads/eg.png</file>
+        <file>Downloads/es.png</file>
+        <file>Downloads/fr.png</file>
+        <file>Downloads/gb.png</file>
+        <file>Downloads/in.png</file>
+        <file>Downloads/it.png</file>
+        <file>Downloads/jp.png</file>
+        <file>Downloads/kr.png</file>
+        <file>Downloads/mx.png</file>
+        <file>Downloads/us.png</file>
+        <file>Downloads/za.png</file>
+        <file>MySelectAllDelegate.qml</file>
     </qresource>
 </RCC>

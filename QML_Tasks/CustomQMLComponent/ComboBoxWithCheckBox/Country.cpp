@@ -1,10 +1,8 @@
 #include "Country.h"
 
-Country::Country(QString countryName,QString countryImage)
-{
-    m_countryName = countryName;
-    m_countryImage = countryImage;
-}
+Country::Country(QObject *parent)
+    : QObject{parent}
+{}
 
 QString Country::getCountryName() const
 {
@@ -13,15 +11,21 @@ QString Country::getCountryName() const
 
 void Country::setCountryName(const QString &newCountryName)
 {
+    if (m_countryName == newCountryName)
+        return;
     m_countryName = newCountryName;
+    emit countryNameChanged();
 }
 
-QString Country::getCountryImage() const
+QString Country::getCountryFlag() const
 {
-    return m_countryImage;
+    return m_countryFlag;
 }
 
-void Country::setCountryImage(const QString &newCountryImage)
+void Country::setCountryFlag(const QString &newCountryFlag)
 {
-    m_countryImage = newCountryImage;
+    if (m_countryFlag == newCountryFlag)
+        return;
+    m_countryFlag = newCountryFlag;
+    emit countryFlagChanged();
 }

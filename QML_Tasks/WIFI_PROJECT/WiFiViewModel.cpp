@@ -1,99 +1,20 @@
-// #include "WiFiViewModel.h"
-
-// WiFiViewModel::WiFiViewModel(QObject *parent)
-//     : QAbstractListModel(parent),
-//     m_dataModel(new WiFiDataModel)
-// {
-//     m_dataModel->loadFromCSV();
-//     refreshModel();
-// }
-
-// WiFiViewModel::~WiFiViewModel()
-// {
-//     m_dataModel->saveToCSV();
-//     delete m_dataModel;
-// }
-
-// int WiFiViewModel::rowCount(const QModelIndex &parent) const
-// {
-//     Q_UNUSED(parent)
-//     return m_currentList.size();
-// }
-
-// QVariant WiFiViewModel::data(const QModelIndex &index, int role) const
-// {
-//     if (!index.isValid() || index.row() >= m_currentList.size())
-//         return QVariant();
-
-//     const WiFiNetwork &net = m_currentList[index.row()];
-
-//     switch (role)
-//     {
-//     case WiFiName:
-//         return net.getWifiName();
-//     case WiFiPassword:
-//         return net.getWifiPassword();
-//     case WiFiStatus:
-//         return net.getWifiStatus();
-//     case SignalStrength:
-//         return net.getSignalStrength();
-//     default:
-//         return QVariant();
-//     }
-// }
-
-// QHash<int, QByteArray> WiFiViewModel::roleNames() const
-// {
-//     QHash<int, QByteArray> roles;
-//     roles[WiFiName] = "WiFiName";
-//     roles[WiFiPassword] = "WiFiPassword";
-//     roles[WiFiStatus] = "WiFiStatus";
-//     roles[SignalStrength] = "SignalStrength";
-//     return roles;
-// }
-
-// bool WiFiViewModel::connectToNetwork(const QString &wifiName, const QString &password)
-// {
-//     bool Ok = m_dataModel->connectToNetwork(wifiName, password);
-//     refreshModel();
-//     return Ok;
-
-// }
-
-// void WiFiViewModel::filterByName(const QString &query)
-// {
-//     beginResetModel();
-//     m_filteredNetworks.clear();
-
-//     QString q = query.trimmed().toLower();
-//     if (q.isEmpty()) {
-//         m_filteredNetworks = m_currentList;
-//     } else {
-//         for (const auto &net : m_currentList) {
-//             if (net.getWifiName().toLower().contains(q))
-//                 m_filteredNetworks.append(net);
-//         }
-//     }
-
-//     endResetModel();
-// }
-// void WiFiViewModel::refreshModel()
-// {
-//     beginResetModel();
-//     m_currentList = m_dataModel->getAllNetworks();
-//     m_filteredNetworks = m_currentList;
-//     endResetModel();
-// }
-
-
 #include "WiFiViewModel.h"
 #include <algorithm>
+#include<QTimer>
 
 WiFiViewModel::WiFiViewModel(QObject *parent)
     : QAbstractListModel(parent), m_dataModel(new WiFiDataModel)
 {
     m_dataModel->loadFromCSV();
     refreshModel();
+
+    /*QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, [this]() {
+        m_dataModel->loadFromSystem();  // Re-fetch system Wi-Fi data
+        refreshModel();                 // Update model for QML
+        qDebug() << "Wi-Fi list refreshed from system.";
+    });
+    timer->start(60000);*/ // 60000 ms = 1 minute
 }
 
 WiFiViewModel::~WiFiViewModel()
@@ -116,11 +37,16 @@ QVariant WiFiViewModel::data(const QModelIndex &index, int role) const
     const WiFiNetwork &net = m_filteredNetworks.at(index.row());
 
     switch (role) {
-    case WiFiName: return net.getWifiName();
-    case WiFiPassword: return net.getWifiPassword();
-    case WiFiStatus: return net.getWifiStatus();
-    case SignalStrength: return net.getSignalStrength();
-    default: return QVariant();
+    case WiFiName:
+        return net.getWifiName();
+    case WiFiPassword:
+        return net.getWifiPassword();
+    case WiFiStatus:
+        return net.getWifiStatus();
+    case SignalStrength:
+        return net.getSignalStrength();
+    default:
+        return QVariant();
     }
 }
 
@@ -187,3 +113,4 @@ void WiFiViewModel::filterByName(const QString &query)
     }
     endResetModel();
 }
+

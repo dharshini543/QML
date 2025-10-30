@@ -14,5 +14,7 @@
         <file>Downloads/arrow.png</file>
         <file>MyPopup.qml</file>
         <file>Downloads/circular-arrows.png</file>
+        <file>Downloads/locked.png</file>
+        <file>Downloads/unlock.png</file>
     </qresource>
 </RCC>

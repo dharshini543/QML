@@ -1,21 +1,30 @@
-#ifndef COUNTRY_H
-#define COUNTRY_H
-#include<QString>
+#ifndef MYCOUNTRY_H
+#define MYCOUNTRY_H
 
-class Country
+#include <QObject>
+
+class Country : public QObject
 {
+    Q_OBJECT
+    Q_PROPERTY(QString countryName READ getCountryName WRITE setCountryName NOTIFY countryNameChanged FINAL)
+    Q_PROPERTY(QString countryFlag READ getCountryFlag WRITE setCountryFlag NOTIFY countryFlagChanged FINAL)
 public:
-    Country(QString countryName,QString countryImage);
+    explicit Country(QObject *parent = nullptr);
 
     QString getCountryName() const;
     void setCountryName(const QString &newCountryName);
 
-    QString getCountryImage() const;
-    void setCountryImage(const QString &newCountryImage);
+    QString getCountryFlag() const;
+    void setCountryFlag(const QString &newCountryFlag);
 
 private:
     QString m_countryName;
-    QString m_countryImage;
+    QString m_countryFlag;
+
+
+signals:
+    void countryNameChanged();
+    void countryFlagChanged();
 };
 
-#endif // COUNTRY_H
+#endif // MYCOUNTRY_H

@@ -15,7 +15,37 @@ WiFiDataModel::~WiFiDataModel()
 
 }
 
-// void WiFiDataModel::loadFromCSV()
+
+// void WiFiDataModel::loadFromSystem()
+// {
+//     // Clear previous data before refreshing
+//     m_groupedNetworks.clear();
+
+//     QProcess process;
+//     process.start("bash", QStringList() << "-c" << "nmcli -t -f SSID,SIGNAL dev wifi list");
+//     process.waitForFinished();
+//     QString output = process.readAllStandardOutput();
+
+//     QStringList lines = output.split("\n", Qt::SkipEmptyParts);
+//     for (const QString &line : lines)
+//     {
+//         QStringList parts = line.split(":");
+//         if (parts.size() >= 2)
+//         {
+//             QString ssid = parts[0].trimmed();
+//             int signal = parts[1].toInt();
+//             if (!ssid.isEmpty())
+//             {
+//                 m_groupedNetworks["unsaved"].append(WiFiNetwork(ssid, "123", "unsaved", signal));
+//             }
+//         }
+//     }
+
+//     // Re-sort by signal after loading
+//     sortNetworks();
+// }
+
+// void WiFiDataModel::loadFromSystem()
 // {
 //     QProcess process;
 //     process.start("bash", QStringList() << "-c" << "nmcli -t -f SSID,SIGNAL dev wifi list");
@@ -103,7 +133,6 @@ void WiFiDataModel::saveToCSV()
                 << network.getSignalStrength() << "\n";
         }
     }
-
     file.close();
 }
 

@@ -1,30 +1,30 @@
-#ifndef COUNTRYVIEWMODEL_H
-#define COUNTRYVIEWMODEL_H
-
+#ifndef COUNTRYLISTMODEL_H
+#define COUNTRYLISTMODEL_H
 #include "Country.h"
 #include <QAbstractListModel>
 #include <QObject>
 
 class CountryViewModel : public QAbstractListModel
 {
-    // QAbstractItemModel interface
+    Q_OBJECT
 public:
     explicit CountryViewModel(QObject *parent = nullptr);
 
-    void loadCountriesFromXml();
+    // QAbstractItemModel interface
+public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
     QHash<int, QByteArray> roleNames() const;
 
-    enum country
-    {
-        CountryName = 1,
-        CountryImage
-    };
+    QList<Country*>m_countryList;
+    void readCountriesFromFile(const QString &filePath);
 
-private:
-    QList<Country> m_countryList;
+
+    enum roleNames
+    {
+        COUNTRYNAME = 1,
+        COUNTRYFLAG
+    };
 };
 
-
-#endif // COUNTRYVIEWMODEL_H
+#endif // COUNTRYLISTMODEL_H

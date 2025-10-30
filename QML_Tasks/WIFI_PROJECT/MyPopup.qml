@@ -10,6 +10,8 @@ Popup {
     height: 230
     anchors.centerIn: Overlay.overlay
 
+    signal connectedSuccessfully()
+
     Rectangle
     {
         anchors.fill: parent
@@ -42,7 +44,6 @@ Popup {
                 color: "white"
 
                 property bool showPassword: false
-
                 echoMode: passwordEdit.showPassword ? TextInput.Normal : TextInput.Password
                 rightPadding: 20
 
@@ -95,6 +96,7 @@ Popup {
                         if (Ok)
                         {
                             console.log("WiFi connected successfully")
+                            connectedSuccessfully()
                         }
                         else
                             console.log("Incorrect Password")
